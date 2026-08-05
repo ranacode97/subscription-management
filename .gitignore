@@ -1,0 +1,12 @@
+# OS & IDE
+.DS_Store
+*.pyc
+__pycache__/
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Docker volumes (not the config)
+odoo_db_data/
+odoo_filestore/
