@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ════════════════ DEMO PLANS ════════════════ -->
+    <record id="plan_starter" model="subscription.plan">
+        <field name="name">Starter</field>
+        <field name="code">STARTER</field>
+        <field name="billing_cycle">monthly</field>
+        <field name="price">9.99</field>
+        <field name="max_domains">1</field>
+        <field name="max_storage_gb">5</field>
+        <field name="max_users">1</field>
+        <field name="max_bandwidth_gb">50</field>
+        <field name="feature_ssl">True</field>
+        <field name="feature_backup">False</field>
+        <field name="feature_support">email</field>
+        <field name="sequence">10</field>
+    </record>
+
+    <record id="plan_professional" model="subscription.plan">
+        <field name="name">Professional</field>
+        <field name="code">PRO</field>
+        <field name="billing_cycle">annual</field>
+        <field name="price">99.99</field>
+        <field name="max_domains">5</field>
+        <field name="max_storage_gb">50</field>
+        <field name="max_users">10</field>
+        <field name="max_bandwidth_gb">500</field>
+        <field name="feature_ssl">True</field>
+        <field name="feature_backup">True</field>
+        <field name="feature_support">priority</field>
+        <field name="sequence">20</field>
+    </record>
+
+    <record id="plan_enterprise" model="subscription.plan">
+        <field name="name">Enterprise</field>
+        <field name="code">ENT</field>
+        <field name="billing_cycle">annual</field>
+        <field name="price">299.99</field>
+        <field name="max_domains">20</field>
+        <field name="max_storage_gb">500</field>
+        <field name="max_users">50</field>
+        <field name="max_bandwidth_gb">5000</field>
+        <field name="feature_ssl">True</field>
+        <field name="feature_backup">True</field>
+        <field name="feature_support">dedicated</field>
+        <field name="sequence">30</field>
+    </record>
+
+    <!-- ════════════════ DEMO TAGS ════════════════ -->
+    <record id="tag_vip" model="subscription.tag">
+        <field name="name">VIP</field>
+        <field name="color">10</field>
+    </record>
+
+    <record id="tag_trial" model="subscription.tag">
+        <field name="name">Trial</field>
+        <field name="color">3</field>
+    </record>
+
+    <record id="tag_reseller" model="subscription.tag">
+        <field name="name">Reseller</field>
+        <field name="color">4</field>
+    </record>
+
+</odoo>
