@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="mail_template_subscription_expiring" model="mail.template">
+        <field name="name">Subscription: Expiring Soon</field>
+        <field name="model_id" ref="model_subscription_subscription"/>
+        <field name="subject">⚠️ Your subscription {{ object.reference }} is expiring soon</field>
+        <field name="email_from">{{ (object.company_id.email or user.email) }}</field>
+        <field name="email_to">{{ object.partner_id.email }}</field>
+        <field name="body_html" type="html">
+<div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto;">
+    <h2 style="color: #f39c12;">⚠️ Subscription Expiring Soon</h2>
+    <p>Dear {{ object.partner_id.name }},</p>
+    <p>Your subscription <strong>{{ object.reference }} - {{ object.name }}</strong>
+       is set to expire on <strong>{{ object.date_end }}</strong>
+       ({{ object.days_to_expire }} days remaining).</p>
+    <table style="width:100%; border-collapse: collapse; margin: 15px 0;">
+        <tr style="background: #f8f9fa;">
+            <td style="padding: 8px; border: 1px solid #dee2e6;"><strong>Plan</strong></td>
+            <td style="padding: 8px; border: 1px solid #dee2e6;">{{ object.plan_id.name }}</td>
+        </tr>
+        <tr>
+            <td style="padding: 8px; border: 1px solid #dee2e6;"><strong>Price</strong></td>
+            <td style="padding: 8px; border: 1px solid #dee2e6;">{{ object.recurring_price }} {{ object.currency_id.symbol }}</td>
+        </tr>
+        <tr style="background: #f8f9fa;">
+            <td style="padding: 8px; border: 1px solid #dee2e6;"><strong>Auto Renew</strong></td>
+            <td style="padding: 8px; border: 1px solid #dee2e6;">{{ 'Yes' if object.is_auto_renew else 'No' }}</td>
+        </tr>
+    </table>
+    <p>Please contact us if you wish to renew or modify your subscription.</p>
+    <p>Best regards,<br/>{{ object.company_id.name }}</p>
+</div>
+        </field>
+    </record>
+
+</odoo>
